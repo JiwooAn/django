@@ -20,6 +20,7 @@ from pybo.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('pybo/', include('pybo.urls')),
+    path('openapi/', include('openapi.urls')),
 ]
 
 
