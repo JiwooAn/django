@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'drf_yasg',
     'pybo.apps.PyboConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'openapi',
-    'pybo',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +127,7 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SWAGGER_SETTINGS = {
+    "exclude_namespaces": ["customized"],    #  List URL namespaces to ignore
+}

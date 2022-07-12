@@ -1,7 +1,8 @@
 from urllib.parse import urlencode, quote_plus
 from urllib.request import Request, urlopen
 from django.http import HttpResponse
-
+import xmltodict
+import json
 
 # Create your views here.
 def index(request):
@@ -10,13 +11,12 @@ def index(request):
                                     quote_plus('pnu'): '1111012500100190000'
                                        , quote_plus('buldAge'): '6'
                                        , quote_plus('buldAgeSe'): '1'
-                                       , quote_plus('format'): 'json'
                                        , quote_plus('numOfRows'): '10'
                                        , quote_plus('pageNo'): '1'
                                     })
 
-    request = Request(url + query_params)
-    request.get_method = lambda: 'GET'
-    response_body = urlopen(request).read()
-    print(response_body)
-    return HttpResponse("family & genus info upload")
+    req = Request(url + query_params)
+    req.get_method = lambda: 'GET'
+    response_body = urlopen(req).read().decode('utf-8')
+    json_response = json.dumps(xmltodict.parse(response_body), indent=4)
+    return HttpResponse(json_response)
