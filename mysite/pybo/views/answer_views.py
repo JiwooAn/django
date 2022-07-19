@@ -22,6 +22,8 @@ def answer_create(request, question_id):
                 resolve_url('pybo:detail', question_id=question.id), answer.id))
     else:
         return HttpResponseNotAllowed('Only POST is possible.')
+
+    # 폼이 다 작성되지 않았을 때 빠지는 부분 
     context = {'question': question, 'form': form}
     return render(request, 'pybo/question_detail.html', context)
 
