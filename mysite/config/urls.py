@@ -20,6 +20,7 @@ from pybo.views import base_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
     path('pybo/', include('pybo.urls')),
     path('openapi/', include('openapi.urls')),
     path('common/', include('common.urls')),
