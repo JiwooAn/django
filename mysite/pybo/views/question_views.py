@@ -16,7 +16,7 @@ def question_create(request):
             question.author = request.user # author 속성에 로그인 계정 저장
             question.create_date = timezone.now() # 실제 저장을 위해 작성일시를 설정한다.
             question.save() # 데이터를 실제로 저장한다.
-            question = get_object_or_404(Question, pk=question.id)
+            # question = get_object_or_404(Question, pk=question.id)
             context = {'question': question}
             return render(request, 'pybo/question_detail.html', context)
     else:

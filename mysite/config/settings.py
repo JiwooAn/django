@@ -151,19 +151,6 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
-LOGIN_REDIRECT_URL = '/'
-
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        }
-    }
-}
 
 # 로그인 성공후 이동하는 URL
 LOGIN_REDIRECT_URL = '/'
